@@ -244,12 +244,12 @@ func musapi(des time.Time) float64 {
 
 	// It appears that the API sometimes returns "." for values if it doesn't
 	// have a number to return. In that case we set the desired interest rate to
-	// 0.0%.
+	// the last known rate.
 	//
 	//     https://github.com/plkrueger/CommonLispFred/blob/master/fred.lisp#L972-L977
 	//
 	if dat.Observations[0].Val == "." {
-		return 0
+		return -1
 	}
 
 	return musf64(dat.Observations[0].Val)
