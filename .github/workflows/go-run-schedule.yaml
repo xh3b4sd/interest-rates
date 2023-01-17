@@ -19,8 +19,8 @@ jobs:
           go-version: "1.19.2"
 
       - name: "Update Rates CSV"
-          env:
-            FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: |
           go run main.go 
 
